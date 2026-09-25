@@ -4,7 +4,7 @@ from datetime import datetime
 
 @celery_app.task(bind=True, autoretry_for=(Exception,), retry_backoff=True, max_retries=3)
 def send_notification(self, token: str, message: str):
-    # Stand-in for a real notification (SMS/push/email) — replace later
+ 
     print(f"[{token}] {message}")
     return {"token": token, "message": message, "sent": True}
 
